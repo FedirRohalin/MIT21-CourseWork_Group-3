@@ -9,7 +9,6 @@
       <tbody id="formulasFolder">
         <FormulaRow />
         <FormulaRow />
-        <FormulaRow />
       </tbody>
     </table>
   </div>
