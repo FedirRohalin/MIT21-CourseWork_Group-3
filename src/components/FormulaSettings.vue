@@ -12,7 +12,6 @@
             <input type="text" placeholder="1000" class="text_input_lol" />
           </div>
         </div>
-  
         <CurrencySearch />
       </div>
     </div>

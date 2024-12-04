@@ -1,7 +1,7 @@
 <template>
   <tr class="formula-template">
     <td>
-      <a class="linkToFormulasPage">BTC increase each 2 sec for T-Shirts</a>
+      <a href="http://localhost:5173/formula/:formulaId/:settingId" class="linkToFormulasPage">BTC increase each 2 sec for T-Shirts</a>
     </td>
     <td>
       <img class="pen" src="../assets/icons/Pen.svg" alt="pen">

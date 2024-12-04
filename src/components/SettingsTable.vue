@@ -11,7 +11,7 @@
     <tbody class="settings-list">
       <tr class="setting-line hidden" id="setting-line-template">
         <td class="content">
-          <a class="content_link setting-link" href="#">
+          <a class="content_link setting-link" href="http://localhost:5173/setting/:id">
             2 sec for T-Shirts
           </a>
         </td>

@@ -4,3 +4,4 @@
     <input type="search" placeholder="Search" class="text_input_lol" />
   </div>
 </template>
+
