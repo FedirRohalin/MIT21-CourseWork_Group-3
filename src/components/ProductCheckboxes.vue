@@ -1,10 +1,10 @@
 <template>
   <div class="checkboxes_with_buttons">
-    <div class="checkboxes_list">
-      <Checkbox label="Content" />
-      <Checkbox label="Content" />
-      <Checkbox label="Content" />
-      <Checkbox label="Content" />
+    <div v-for="product in products" :key="product.id" class="checkboxes_list">
+      <Checkbox :label="product.title" />
+      <div v-for="variant in product.variants">
+        <Checkbox :label="variant.title" />
+      </div>
     </div>
     <div class="buttons_list">
       <button class="book_cancel_button">Cancel</button>
@@ -15,4 +15,10 @@
 
 <script setup>
 import Checkbox from './Checkbox.vue'
+
+defineProps({
+  products: {
+    type: Object,
+  }
+})
 </script>
