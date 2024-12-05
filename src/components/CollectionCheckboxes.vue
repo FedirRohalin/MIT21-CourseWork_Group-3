@@ -1,10 +1,9 @@
 <template>
   <div class="checkboxes_with_buttons">
     <div class="checkboxes_list">
-      <Checkbox label="Selected" />
-      <Checkbox label="Content" />
-      <Checkbox label="Content" />
-      <Checkbox label="Content" />
+      <div v-for="collection in collections" :key="collection.id">
+        <Checkbox :label="collection.title" />
+      </div>
     </div>
     <div class="buttons_list">
       <button class="book_cancel_button">Cancel</button>
@@ -15,4 +14,10 @@
 
 <script setup>
 import Checkbox from './Checkbox.vue'
+
+defineProps({
+  collections: {
+    type: Object,
+  }
+})
 </script>

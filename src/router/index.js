@@ -10,13 +10,13 @@ const routes = [
         component: HomeView,
     },
     {
-        path: '/setting/:id',
+        path: '/settings/:id',
         name: 'Setting',
         component: SettingView,
-        props: true, 
+        props: true,
     },
     {
-        path: '/formula/:formulaId/:settingId',
+        path: '/formula/:settingId/:formulaId',
         name: 'Formula',
         component: FormulaView,
         props: true,
