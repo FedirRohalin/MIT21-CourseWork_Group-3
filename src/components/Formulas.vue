@@ -25,7 +25,7 @@ import { useRoute } from 'vue-router';
 
 const route = useRoute();
 const appState = getState('state');
-const settingId = route.params.id;
+const settingId = route.params.settingId;
 const setting = appState.settings.find((s) => s.id === Number(settingId));
 const formulas = ref(setting?.formulas || []);
 </script>
