@@ -1,12 +1,15 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-import { initializeLocalStorage } from './javascript/localStorage';
+import { fetchAndStoreData, getState } from './javascript/localStorage';
 import initialData from './db/state.json';
-import fetchShopifyData from './API/recieveData.js'
+import fetchShopifyData from './API/receiveData.js';
+import {combine, extractProductDetails }from './javascript/retrieveDataFromAPI.js';
 
-fetchShopifyData();
-initializeLocalStorage('state', initialData);
+
+
+fetchAndStoreData('products', fetchShopifyData());
+fetchAndStoreData('state', combine(initialData, extractProductDetails( getState('products'))));
 
 const app = createApp(App);
 app.use(router);
