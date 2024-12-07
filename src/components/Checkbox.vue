@@ -1,14 +1,18 @@
+
 <template>
-  <div class="checkbox_square">
-    <input 
-      type="checkbox" 
-      :checked="checked" 
-      @change="updateChecked($event.target.checked)" 
-    />
-    <div class="book_content">
-      <img class="book_icon" src="../assets/icons/Book.svg" alt="_book" />
-      <div class="book_content_title">{{ label }}</div>
-    </div>
+  <div class="checkbox-wrapper">
+    <label class="custom-checkbox">
+      <input
+        type="checkbox"
+        :checked="checked"
+        @change="updateChecked($event.target.checked)"
+      />
+
+      <div class="book-content">
+        <img class="book-icon" src="../assets/icons/Book.svg" alt="book" />
+        <div class="book-content-title">{{ label }}</div>
+      </div>
+    </label>
   </div>
 </template>
 

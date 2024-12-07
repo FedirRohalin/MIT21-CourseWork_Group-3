@@ -10,7 +10,6 @@
       </div>
     </div>
     <div class="buttons_list">
-      <button class="book_cancel_button" @click="cancelSelection">Cancel</button>
       <button class="book_save_button" @click="saveSelection">Save</button>
     </div>
   </div>
@@ -19,8 +18,9 @@
 <script setup>
 import { ref } from 'vue';
 import Checkbox from './Checkbox.vue';
+import { useRoute } from 'vue-router';
+import { getState, setState } from '../javascript/localStorage';
 
-// Define props
 const props = defineProps({
   collections: {
     type: Array,
@@ -35,6 +35,9 @@ const props = defineProps({
 const emit = defineEmits(['update:selectedCollectionsIds']);
 
 const selectedCollectionsIds = ref([...props.selectedCollectionsIds]);
+const route = useRoute();
+const settingId = route.params.settingId;
+const formulaId = route.params.formulaId;
 
 const toggleCollection = (id) => {
   if (selectedCollectionsIds.value.includes(id)) {
@@ -51,6 +54,16 @@ const cancelSelection = () => {
 };
 
 const saveSelection = () => {
+  const state = getState();
+  const setting = state.settings.find((s) => s.id === Number(settingId));
+  if (setting) {
+    const formula = setting.formulas.find((f) => f.id === Number(formulaId));
+    if (formula) {
+      formula.targets.collectionsIds = selectedCollectionsIds.value;
+      setState("state", state); // Save to localStorage
+    }
+  }
   emit('update:selectedCollectionsIds', selectedCollectionsIds.value);
 };
 </script>
+

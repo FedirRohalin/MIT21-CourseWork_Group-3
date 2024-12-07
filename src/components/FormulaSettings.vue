@@ -1,7 +1,7 @@
 <template>
   <div class="flex_0">
     <div class="Containers_with_books_1">
-      <div class="Formula_sq">
+      <div class="Formula_sq1">
         <div class="t_1 t_1_0">Formula settings</div>
 
         <FormulaInput 
@@ -25,7 +25,6 @@
               class="text_input_lol" />
           </div>
         </div>
-
         <CurrencySearch :currencies="currencies" :selectedCurrency="localFormula.currency"/>
       </div>
     </div>

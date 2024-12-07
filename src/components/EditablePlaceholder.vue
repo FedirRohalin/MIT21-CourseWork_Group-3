@@ -55,7 +55,6 @@
   transition: border 0.3s;
 }
 .placeholder-text:hover {
-  border: 1px dashed lightgray;
   background-color: #f9f9f9;
 }
 .editable-input {

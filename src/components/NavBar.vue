@@ -1,4 +1,5 @@
 <template>
+
   <div class="nav">
     <h1 class="settings">Settings</h1>
     <div class="header-controls">
@@ -10,20 +11,27 @@
 </template>
 
 <script>
-  export default{
-    methods: {
-      editSetting(id = null) {
-        const timestamp = new Date().getTime();
-        const settingId = id || `setting-${timestamp}`;
-        console.log(this.$router.push({ name: 'Setting', params: { id: settingId } }))
-        this.$router.push({ name: 'Setting', params: { id: settingId } });
-      },
-      /**
-       * Redirects to the Setting view to create a new setting
-       */
-      createSetting() {
-          this.editSetting();
-      },
-    }
+import { getState, setState } from '../javascript/localStorage';
+
+export default{
+  methods: {
+    editSetting(id = null) {
+      const settingTemplate = {
+          id: new Date().getTime(),
+          title: 'Setting title',
+          status: 'draft',
+          formulas: [],
+      }
+
+      const localState = getState("state")
+      
+      localState.settings.push(settingTemplate)
+      setState("state", localState)
+      this.$router.push(`/settings/${settingTemplate.id}`);
+    },
+    createSetting() {
+        this.editSetting();
+    },
   }
+}
 </script>
