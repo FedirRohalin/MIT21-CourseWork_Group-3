@@ -33,7 +33,6 @@ const formulaId = route.params.formulaId;
 const products = ref(appData.products);
 
 const setting = appData.settings.find((s) => s.id == Number(settingId));
-console.log(setting);
 
 const formula = setting.formulas.find((f) => f.id == Number(formulaId));
 const updateStatus = (newStatus) => {

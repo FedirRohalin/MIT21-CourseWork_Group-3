@@ -23,6 +23,36 @@ export default {
   },
   emits: ['status-updated'],
   methods: {
+    editFormula() {
+      const formulaTemplate = {
+        id: Date.now(),
+        title: 'Formula name',
+        currency: 'BTC',
+        formula: 'X * Y',
+        frequency: 1000,
+        targets: {
+          collectionsIds: [],
+          products: [],
+        },
+      };
+
+      const localState = getState('state') || { settings: [] }; // Ensure a default structure
+
+      const currentSetting = localState.settings.find(
+        (setting) => setting.id == this.settingId
+      );
+
+      if (!currentSetting) {
+        console.error('No setting found with ID:', this.settingId);
+        return;
+      }
+
+      currentSetting.formulas.push(formulaTemplate);
+
+      setState('state', localState);
+
+      this.$router.push(`/formula/${this.settingId}/${formulaTemplate.id}`);
+    },
     editStatus() {
       const localState = getState('state') || { settings: [] };
 
@@ -43,6 +73,9 @@ export default {
     },
     createStatus() {
       this.editStatus();
+    },
+    createFormula() {
+      this.editFormula();
     },
   },
 };
