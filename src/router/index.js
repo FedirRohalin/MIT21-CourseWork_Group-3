@@ -10,7 +10,7 @@ const routes = [
         component: HomeView,
     },
     {
-        path: '/settings/:id',
+        path: '/settings/:settingId',
         name: 'Setting',
         component: SettingView,
         props: true,
