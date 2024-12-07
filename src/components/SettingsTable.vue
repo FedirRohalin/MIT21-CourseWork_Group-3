@@ -2,10 +2,8 @@
   <table class="table settings-table">
     <thead>
       <tr>
-        <div class="s_n">
-          <th>Setting-name</th>
-          <th>Status</th> 
-        </div>
+        <th>Setting-name</th>
+        <th>Status</th> 
       </tr>
     </thead>
     <tbody class="settings-list">
@@ -22,6 +20,7 @@
           <img class="trash" src="../assets/icons/Trash.svg" alt="Delete" aria-controls="create-remove">
         </td>
       </tr>
+      
     </tbody>
   </table>
 </template>
