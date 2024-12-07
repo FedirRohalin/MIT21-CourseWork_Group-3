@@ -14,5 +14,22 @@
     
     <input type="radio" id="btn_ton" name="menu" class="menu_radio">
     <label for="btn_ton" class="menu_button">TON</label>
+
+    <button v-on:click="redirectToCurrencyPrisePage">Price</button>
   </div>
 </template>
+
+
+
+<script>
+  export default{
+    methods: {
+      redirectToCurrencyPrisePage() {
+        this.$router.push({ name: 'Currency Price' });
+      },
+      /**
+       * Redirects to the Currency Price view
+       */
+    }
+  }
+</script>
