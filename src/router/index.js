@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/IndexPage.vue';
 import SettingView from '../views/SettingsPage.vue';
 import FormulaView from '../views/FormulasPage.vue';
-import CurrencyPriceView from '../views/CurrencyPricePage.vue';
 
 
 const routes = [
@@ -22,11 +21,6 @@ const routes = [
         name: 'Formula',
         component: FormulaView,
         props: true,
-    },
-    {
-        path: '/currency-price',
-        name: 'Currency Price',
-        component: CurrencyPriceView,
     },
 ];
 
