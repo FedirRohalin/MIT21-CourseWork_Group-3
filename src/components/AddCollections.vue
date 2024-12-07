@@ -1,41 +1,49 @@
 <template>
-  <div class="Containers_with_books_2">
-    <div class="Formula_sq">
-      <div class="t_1 t_1_0">Add collections</div>
-      <CollectionSearch />
-      <CollectionCheckboxes 
-        :collections="collections" 
-        :selectedCollectionsIds="localSelectedCollectionsIds"
-        @updateSelected="updateSelectedIds"
-      />
-    </div>
+  <div class="Formula_sq">
+    <div class="t_1 t_1_0">Add collections</div>
+    <CollectionSearch @search="onSearch" />
+    <CollectionCheckboxes
+      :collections="filteredAndSortedCollections"
+      :selectedCollectionsIds="localSelectedCollectionsIds"
+      @updateSelected="updateSelectedIds"
+    />
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { ref, computed } from 'vue';
 import CollectionSearch from './CollectionSearch.vue';
 import CollectionCheckboxes from './CollectionCheckboxes.vue';
 import { getState } from '../javascript/localStorage';
 
-const props = defineProps({
-  selectedCollectionsIds: {
-    type: Array,
-    required: false,
-  },
+const appData = getState();
+const allCollections = ref(appData.collections);
+
+const searchQuery = ref('');
+const sortOption = ref('title');
+
+// Filter and sort collections
+const filteredAndSortedCollections = computed(() => {
+  let collections = allCollections.value;
+
+  // Filter by search query
+  if (searchQuery.value) {
+    collections = collections.filter((collection) =>
+      collection.title.toLowerCase().includes(searchQuery.value.toLowerCase())
+    );
+  }
+
+  // Sort by selected criteria
+  return collections.sort((a, b) =>
+    a[sortOption.value] > b[sortOption.value] ? 1 : -1
+  );
 });
 
-const localSelectedCollectionsIds = computed({
-  get: () => props.selectedCollectionsIds || [],
-  set: (newIds) => emit('update:selectedCollectionsIds', newIds),
-});
+const onSearch = (query) => {
+  searchQuery.value = query;
+};
 
-const emit = defineEmits(['update:selectedCollectionsIds']);
-
-const appData = getState('state');
-const collections = appData.collections;
-
-function updateSelectedIds(newIds) {
-  localSelectedCollectionsIds.value = newIds;
-}
+const sortCollections = () => {
+  // Computed property automatically updates
+};
 </script>
