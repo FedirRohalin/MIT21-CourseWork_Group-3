@@ -16,12 +16,13 @@
           class="variant_checkbox"
         >
           <label>
-            <input 
-              type="checkbox" 
+            <input
+              type="checkbox"
               :checked="isVariantSelected(product.id, variant.id)" 
               @change="toggleVariant(product.id, variant.id)" 
             />
             {{ variant.title }}
+            <img :src="variant.src" style="width: 25px; height: 25px;"/>
           </label>
         </div>
       </div>

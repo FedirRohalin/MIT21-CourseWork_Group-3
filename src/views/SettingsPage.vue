@@ -1,7 +1,7 @@
 <template>
     <section class="container1">
         <LinkToPr :settingName="setting && setting.title" :settingId="settingId" :FormulaName="formula && formula.title"/>
-        <Buttons :settingId="settingId" :settingStatus="setting && setting.status" @status-updated="updateStatus"/>
+        <Buttons is-formula :settingId="settingId" :settingStatus="setting && setting.status" @status-updated="updateStatus"/>
     </section>
     <TextInput />
     <Bottom />

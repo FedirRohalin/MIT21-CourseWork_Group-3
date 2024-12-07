@@ -25,7 +25,6 @@
               class="text_input_lol" />
           </div>
         </div>
-
         <CurrencySearch :currencies="currencies" :selectedCurrency="localFormula.currency"/>
       </div>
     </div>

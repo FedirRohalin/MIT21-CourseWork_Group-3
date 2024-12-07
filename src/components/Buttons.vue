@@ -1,6 +1,8 @@
 <template>
   <div class="buttons">
-    <button v-on:click="createStatus" data-status="draft" class="activate">{{settingStatus}}</button>
+    <button v-if="isFormula" v-on:click="createStatus" data-status="draft" class="activate">
+      {{settingStatus === "active" ? "Active" : "Draft"}}
+    </button>
     <button class="discard">Discard</button>
     <button class="save">Save</button>
     <button v-on:click="createFormula" class="create_formula" aria-controls="create-formula">Create Formula</button>
@@ -20,6 +22,9 @@ export default {
       type: String,
       default: "active",
     },
+    isFormula: {
+      type: Boolean,
+    }
   },
   emits: ['status-updated'],
   methods: {
