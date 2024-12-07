@@ -1,7 +1,5 @@
-export function initializeLocalStorage(key, initialData) {
-  if (!localStorage.getItem(key)) {
-    localStorage.setItem(key, JSON.stringify(initialData));
-  }
+export function initializeLocalStorage(initialData) {
+  localStorage.setItem("state", JSON.stringify(initialData));
 }
 
 export function getState(key) {
