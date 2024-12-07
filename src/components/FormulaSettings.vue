@@ -26,7 +26,7 @@
           </div>
         </div>
 
-        <CurrencySearch :currencies="currencies" />
+        <CurrencySearch :currencies="currencies" :selectedCurrency="localFormula.currency"/>
       </div>
     </div>
   </div>

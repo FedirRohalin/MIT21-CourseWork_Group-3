@@ -6,11 +6,16 @@
 
   <TextInput :title="formula.title"/>
   <FormulaSettings :formula="formula"/>
-  <AddCollections/>
-  <AddProducts/>
+  <AddCollections :selectedCollectionsIds="formula.targets.collectionsIds"/>
+  <AddProducts 
+    :products="products" 
+    :formulaProducts="formula.targets.products" 
+    @update:formulaProducts="(updated) => formula.targets.products = updated" 
+  />
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import LinkToPr from '../components/LinkToPr.vue'
 import Buttons from '../components/Buttons.vue'
 import TextInput from '../components/TextInput.vue'
@@ -25,6 +30,7 @@ const route = useRoute();
 const appData = getState('state');
 const settingId = route.params.settingId;
 const formulaId = route.params.formulaId;
+const products = ref(appData.products);
 
 const setting = appData.settings.find((s) => s.id === Number(settingId));
 
