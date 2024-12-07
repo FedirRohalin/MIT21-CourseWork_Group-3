@@ -1,5 +1,5 @@
 <template>
-  <div class="Formula_sq">
+  <div class="Formula_sq2">
     <div class="t_1 t_1_0">Add collections</div>
     <CollectionSearch @search="onSearch" />
     <CollectionCheckboxes

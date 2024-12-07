@@ -1,6 +1,6 @@
 <template>
   <div class="Containers_with_books_2">
-    <div class="Formula_sq">
+    <div class="Formula_sq3">
       <div class="t_1 t_1_0">Add products</div>
       <ProductSearch />
       <ProductCheckboxes 

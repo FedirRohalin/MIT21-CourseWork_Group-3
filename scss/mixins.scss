@@ -1,0 +1,9 @@
+@mixin box-shadow($x: 0, $y: 1px, $blur: 2px, $color: #e6e8ea) 
+{
+    box-shadow: $x $y $blur $color;
+}
+
+@mixin border-radius($radius: $border-radius) 
+{
+    border-radius: $radius;
+}

@@ -1,4 +1,5 @@
 <template>
+
   <div class="nav">
     <h1 class="settings">Settings</h1>
     <div class="header-controls">

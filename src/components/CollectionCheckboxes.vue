@@ -10,7 +10,6 @@
       </div>
     </div>
     <div class="buttons_list">
-      <button class="book_cancel_button" @click="cancelSelection">Cancel</button>
       <button class="book_save_button" @click="saveSelection">Save</button>
     </div>
   </div>

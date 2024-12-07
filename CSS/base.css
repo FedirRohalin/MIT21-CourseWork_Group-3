@@ -1,0 +1,48 @@
+a, a:link, a:visited {
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  max-width: 1376px;
+  margin: 0 auto;
+}
+
+.page-heading {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--Color-text-text);
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button, input[type=submit] {
+  display: inline-block;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+input:focus, button:focus {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}/*# sourceMappingURL=base.css.map */
