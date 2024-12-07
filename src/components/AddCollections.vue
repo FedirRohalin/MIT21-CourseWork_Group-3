@@ -3,12 +3,18 @@
     <div class="Formula_sq">
       <div class="t_1 t_1_0">Add collections</div>
       <CollectionSearch />
-      <CollectionCheckboxes />
+      <CollectionCheckboxes :collections="collections"/>
     </div>
   </div>
 </template>
 
 <script setup>
-  import CollectionSearch from './CollectionSearch.vue'
-  import CollectionCheckboxes from './CollectionCheckboxes.vue'
+import CollectionSearch from './CollectionSearch.vue'
+import CollectionCheckboxes from './CollectionCheckboxes.vue'
+import { getState } from '../javascript/localStorage'
+
+const appData = getState('state');
+
+const collections = appData.collections
+
 </script>

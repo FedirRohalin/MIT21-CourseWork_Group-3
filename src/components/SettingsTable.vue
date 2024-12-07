@@ -7,11 +7,11 @@
       </tr>
     </thead>
     <tbody class="settings-list">
-      <tr class="setting-line hidden" id="setting-line-template">
+      <tr class="setting-line hidden" id="setting-line-template" v-for="setting in settings" :key="setting.id">
         <td class="content">
-          <a class="content_link setting-link" href="http://localhost:5173/setting/:id">
-            2 sec for T-Shirts
-          </a>
+          <router-link class="content_link setting-link" :to="`/settings/${setting.id}`">
+            {{ setting.title }}
+          </router-link>
         </td>
         <td class="status">
           <div class="st_active status-badge setting-status-badge">active</div>
@@ -24,4 +24,12 @@
     </tbody>
   </table>
 </template>
-  
+
+<script setup>
+  defineProps({
+    settings: {
+      type: Array,
+      required: true
+    }
+  });
+</script>

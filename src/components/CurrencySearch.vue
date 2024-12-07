@@ -6,11 +6,11 @@
     </div>
     <div class="t-stylish">Select crypto from the list of search the one you need</div>
     <div class="books_content hidden">
-      <div class="book_content hidden">
+      <div v-for="currency in currencies" :key="currency.title" class="book_content hidden">
         <label class="book_radio">
           <input type="radio" name="bookOption" value="content" class="book_input" />
           <img class="book_icon" src="../assets/icons/Book.svg" alt="Book" />
-          <span class="book_content_title">Content</span>
+          <span class="book_content_title">{{currency.title}}</span>
         </label>
       </div>
     </div>
@@ -18,3 +18,12 @@
     <button class="book_save_button" id="saveCurrency">Save</button>
   </div>
 </template>
+
+<script setup>
+defineProps({
+  currencies: {
+    type: String,
+    required: true,
+  }
+})
+</script>
