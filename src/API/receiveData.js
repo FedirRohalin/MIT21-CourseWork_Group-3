@@ -1,3 +1,5 @@
+import { extractProductDetails } from "../helper/miscellaneous";
+
 async function fetchShopifyData() {
   try {
     const response = await fetch('http://localhost:1337/shopify-admin', {
@@ -9,9 +11,8 @@ async function fetchShopifyData() {
     }
 
     const data = await response.json();
-    console.log('Shopify Data:', data);
 
-    return data; // Use the data in your app (e.g., store it in a variable or state)
+    return extractProductDetails(data);
   } catch (error) {
     console.error('Failed to fetch data from the server:', error);
   }
